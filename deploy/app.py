@@ -9,7 +9,7 @@ parser.add_argument("-m", "--model", dest="model", help="location of the pickle 
 filename = parser.parse_args().model
 
 app = Flask(__name__)
-model = pickle.load(open('filename', 'rb'))
+model = pickle.load(open(filename, 'rb'))
 
 @app.route('/')
 def index():
