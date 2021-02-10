@@ -15,18 +15,7 @@ model = pickle.load(open(filename, 'rb'))
 def index():
     return "Network Intrusion Detection System"
 
-@app.route('/predict',methods=['POST'])
-def predict():
-    '''
-    For rendering results on HTML GUI
-    '''
-    int_features = [int(x) for x in request.form.values()]
-    final_features = [np.array(int_features)]
-    prediction = model.predict(final_features)
 
-    output = round(prediction[0], 2)
-
-    return render_template('index.html', prediction_text='Employee Salary should be $ {}'.format(output))
 
 @app.route('/predict_api',methods=['POST'])
 def predict_api():
@@ -35,8 +24,11 @@ def predict_api():
     '''
     data = request.get_json(force=True)
     prediction = model.predict([np.array(list(data.values()))])
+    Attackclasses = ['BENIGN', 'DDoS', 'PortScan', 'Bot', 'Infiltration', 'Web Attack � Brute Force', 'Web Attack � XSS','Web Attack � Sql Injection', 
+                     'FTP-Patator', 'SSH-Patator', 'DoS slowloris', 'DoS Slowhttptest', 'DoS Hulk', 'DoS GoldenEye', 'Heartbleed']
 
-    output = prediction[0]
+    output = Attackclasses[int(prediction[0])]
+
     return jsonify(output)
 
 if __name__ == "__main__":
