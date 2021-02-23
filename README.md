@@ -28,13 +28,7 @@ Traditional intrusion detection systems are no longer considered adequate to han
 
 **Results**
 
-|
- | **Precision** | **Recall** | **F1 score** | **Accuracy** |
-| --- | --- | --- | --- | --- |
-| **Macro** | **Weighted** | **Macro** | **Weighted** | **Macro** | **Weighted** |
-| **RF** | **0.80** | **0.99** | **0.74** | **0.99** | **0.75** | **0.99** | **0.99** |
-| **KNN** | **0.91** | **0.99** | **0.91** | **0.99** | **0.91** | **0.99** | **0.99** |
-| **CNN** | **0.89** | **0.99** | **0.87** | **0.98** | **0.85** | **0.98** | **0.98** |
+![](Images/Result_table.PNG)
 
 **Model deployment**
 
